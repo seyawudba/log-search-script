@@ -1,0 +1,15 @@
+#!/bin/bash
+#written_by=ybaseyram 
+echo Input the search text below
+echo
+read text_to_search
+echo
+count=`cat /var/log/apache2/access.log | grep $text_to_search | wc -l`
+command=`cat /var/log/apache2/access.log | grep -n $text_to_search`
+if [ $count -ge 1 ]
+then
+   echo $command #This line prints an output provided the search input is present.
+else
+   echo Not found
+fi
+   
